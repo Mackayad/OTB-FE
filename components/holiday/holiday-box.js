@@ -30,7 +30,7 @@ class HolidayBox extends React.Component {
         const { expanded } = this.state
         return (
             <Container className={styles['holiday-box']}>
-                <Row className={styles['holiday-box__main-row']} onClick={() => this.setState({expanded: !expanded})}>
+                <Row className={styles['holiday-box__main-row']}>
                     <Col className={styles['holiday-box__image-container']} sm="12" md="7">
                         <Image src={this.props.data.image} layout="fill"></Image>
                     </Col>
@@ -52,7 +52,7 @@ class HolidayBox extends React.Component {
                             <p className={styles['holiday-box__price']}>{this.getFormattedPrice()}</p>
                         </Button>
                     </Col>
-                    <Button className={styles['holiday-box__read-more-button']}>
+                    <Button className={styles['holiday-box__read-more-button']} onClick={() => this.setState({expanded: !expanded})}>
                         <strong>Read {expanded ? 'less' : 'more'}</strong> about this hotel
                         <FontAwesomeIcon className={styles['holiday-box__read-more-icon']} icon={faChevronRight}></FontAwesomeIcon>
                     </Button>
