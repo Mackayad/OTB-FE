@@ -1,0 +1,82 @@
+@import '../../mixins/media-queries.sass'
+
+$primary-color: #17317f
+$secondary-color: #fedd07
+$subheader-color: #a9a9a9
+    
+.holiday-box
+    background: white
+    margin-bottom: 2em
+    margin-left: 1em
+    position: relative
+    +small-only
+        margin-top: 2em
+        margin-left: 0
+    &__main-row
+        position: relative
+    &__image-container
+        +small-only
+            min-height: 30vh
+    &__information-text
+        font-size: 0.8em
+        margin-bottom: 0.5em
+    &__hotel-name
+        color: $primary-color
+        font-size: 1.2em
+        font-weight: 700
+    &__location
+        font-size: 0.8em
+        color: $subheader-color
+    &__star-icon
+        width: 16px
+        color: $secondary-color
+    &__book-button
+        width: 100% !important
+        background-color: $secondary-color
+        border-radius: 5px
+        border: none
+        margin-bottom: 1em
+        color: $primary-color
+        padding-bottom: 1em
+        +small-only
+            margin-bottom: 2.5em
+        &:hover, &:focus, &:active
+            background: darken($secondary-color, 5%)
+    &__book-text
+        margin-bottom: 0
+        font-size: 0.8em
+        font-weight: 600
+    &__price
+        font-weight: 700
+        font-size: 2em
+        line-height: 1em
+        margin-bottom: 0
+    &__read-more-icon
+        width: 16px
+        margin-left: 1em
+    &__read-more-button
+        color: $primary-color
+        font-size: 0.8em
+        background: white
+        position: absolute
+        bottom: 0
+        left: 0
+        border: none
+        border-radius: 0
+        +small-only
+            width: 100%
+        &:focus, &:active
+            background: white
+            color: $primary-color
+            box-shadow: none
+        &:hover
+            background: $primary-color
+            color: white
+    &__description-container
+        padding: 1em 1.5em
+    &__overview-header
+        color: $primary-color
+        font-size: 1em
+        font-weight: 700
+    &__description
+        font-size: 0.8em

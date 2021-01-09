@@ -1,0 +1,27 @@
+@import '../../mixins/media-queries.sass'
+    
+$inactive-icon: #d4d4d4
+    
+.sort-menu
+    +small-only
+        padding: 0
+    &__icon
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        width: 20px
+        height: 20px
+        right: 1em
+        color: $inactive-icon
+        &--active
+            color: white
+    &__sort-icon
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        width: 16px
+        height: 16px
+        right: 2.5em
+        color: $inactive-icon
+        &--active
+            color: white

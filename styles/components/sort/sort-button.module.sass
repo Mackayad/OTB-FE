@@ -1,0 +1,19 @@
+$primary-color: #17317f
+    
+.sort-menu
+    &__button
+        position: relative
+        background: white
+        color: $primary-color
+        padding: 1em
+        border-bottom: 1px solid $primary-color
+        cursor: pointer
+        &:hover
+            background: lighten($primary-color, 65%)
+        &:last-of-type
+            border-bottom: none
+        &--active
+            background: $primary-color
+            color: white
+            &:hover
+                background: darken($primary-color, 10%)
