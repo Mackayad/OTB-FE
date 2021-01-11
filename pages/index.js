@@ -5,12 +5,6 @@ import { Container, Row, Col } from 'react-bootstrap'
 import SortMenu from '../components/sort/sort-menu'
 import HolidayBox from '../components/holiday/holiday-box'
 
-const sortTypes = [
-  "name",
-  "price",
-  "stars"
-]
-
 class Home extends React.Component {
 
   constructor(props) {
@@ -21,6 +15,12 @@ class Home extends React.Component {
       holidays: [],
       reverseFlag: [false, false, false]
     }
+
+    this.sortTypes = [
+      "name",
+      "price",
+      "stars"
+    ]
   }
 
   componentDidMount = () => {
@@ -52,7 +52,7 @@ class Home extends React.Component {
 
   getSortedHolidays = ( holidayArray, sortType ) => {
     return holidayArray.sort((a, b) => {
-      return a[sortTypes[sortType]] >= b[sortTypes[sortType]] ? 1 : -1
+      return a[this.sortTypes[sortType]] >= b[this.sortTypes[sortType]] ? 1 : -1
     })
   }
 
@@ -69,13 +69,22 @@ class Home extends React.Component {
       }
     )
     .then((response) => {
-      return response.json();
+      let json = response.json()
+      if(json) {
+        return json
+      } else {
+        return json.then(Promise.reject.bind(Promise))
+      }
     })
     .then((holidayJson) => {
       this.setState({
         holidays: this.getSortedHolidays(holidayJson, 1)
       })
-    });
+    })
+    .catch((error) => {
+      console.log("Error fetching holiday JSON file:")
+      console.log(error)
+    })
   }
 
   render() {
